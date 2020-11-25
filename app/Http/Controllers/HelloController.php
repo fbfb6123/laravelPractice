@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Person;
 
 class HelloController extends Controller
 {
-    public function index(Request $request) {
+    public function index(Person $person) {
         $data = [
-            'msg'=>$request->hello,
+            'msg'=>$person,
         ];
         return view('hello.index', $data);
     }
