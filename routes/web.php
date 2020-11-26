@@ -23,7 +23,7 @@ Route::middleware([HelloMiddleware::class])->group(function (){
 /*Route::resource('/hello',HelloController::class);*/
 //数字のみを指定できるIDパラメータ
 /*Route::get('/hello/{id}',[HelloController::class, 'index'])->where('id','[0-9]+');*/
-/*Route::get('/hello',[HelloController::class, 'index'])->name('hello');*/
+Route::get('/hello',[HelloController::class, 'index'])->name('hello');
 Route::get('/hello/other',[HelloController::class, 'other']);
 });
 
@@ -32,4 +32,4 @@ Route::namespace('Sample')->group(function () {
     Route::get('/sample/other',[SampleController::class, 'other']);
 });
 
-Route::get('/hello/{person}',[HelloController::class, 'index']);
+/*Route::get('/hello/{person}',[HelloController::class, 'index']);20P*/
