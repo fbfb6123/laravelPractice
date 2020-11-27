@@ -28,8 +28,10 @@ Route::get('/hello/other',[HelloController::class, 'other']);
 });
 
 Route::namespace('Sample')->group(function () {
-    Route::get('/sample',[SampleController::class, 'index']);
+    Route::get('/sample',[SampleController::class, 'index'])->name('sample');
     Route::get('/sample/other',[SampleController::class, 'other']);
 });
+
+
 
 /*Route::get('/hello/{person}',[HelloController::class, 'index']);20P*/

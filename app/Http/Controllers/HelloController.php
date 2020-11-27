@@ -22,9 +22,6 @@ class HelloController extends Controller
     }
 
     public function other(Request $request) {
-        $data = [
-            'msg'=>$request->bye,
-        ];
-        return view('hello.index', $data);
+        return redirect()->route('sample');
     }
 }
