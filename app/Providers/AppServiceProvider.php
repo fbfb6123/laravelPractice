@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        config([
+            'sample.data'=>['サービスプロバイダ','テスト','全体組み込み']
+               ]);
     }
 }
