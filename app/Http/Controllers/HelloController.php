@@ -8,8 +8,13 @@ use Illuminate\Support\Facades\Storage;
 
 class HelloController extends Controller
 {
-    $url = Storage::disk('public')->url($this->fname);
-    
+    private $fname;
+
+    function __construct() {
+        $this->fname = 'hello.txt';
+    }
+    public function index() {
+        $url = Storage::disk('public')->url($this->fname);
         return view('hello.index', $data);
     }
 
