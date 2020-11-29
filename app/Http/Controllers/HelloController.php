@@ -15,6 +15,7 @@ class HelloController extends Controller
     }
     public function index() {
         $url = Storage::disk('public')->url($this->fname);
+        $size = Storage::disk('public')->size($this->fname);
         return view('hello.index', $data);
     }
 
