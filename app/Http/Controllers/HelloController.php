@@ -16,6 +16,7 @@ class HelloController extends Controller
     public function index() {
         $url = Storage::disk('public')->url($this->fname);
         $size = Storage::disk('public')->size($this->fname);
+        $modified_time = data('y-m-d H:i:s', $modified);
         return view('hello.index', $data);
     }
 
