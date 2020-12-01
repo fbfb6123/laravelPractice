@@ -16,15 +16,15 @@ class HelloController extends Controller
         $values = [];
         if ($request->isMethod('post'))
         {
-            $form = $request->all();
-            $result = '<html><body>';
-        foreach($form as $key => $value)
-        {
-            $result .= $key .':' . $value ."<br>";
-        }
-        $result .= '</body></html>';
-        $response->setContent($result);
-        return $response;
+            $form = $request->only(['name', 'mail']);
+            $keys = array_keys($form);
+            $values = array_values($form);
+            $data =[
+                'msg'=>'特定の項目を呼び出し',
+                'keys' => $keys,
+                'values' => $values,
+            ];
+        return view('hello.index',$data);
     }
         $data =[
             'msg'=>$msg,
