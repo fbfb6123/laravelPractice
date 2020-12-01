@@ -21,7 +21,9 @@ class HelloController extends Controller
         $modified_time = data('y-m-d H:i:s', $modified);
         $sample_keys = ['url', 'size', 'modified'];
         $sample_meta = [$url, $size, $modified];
-        
+        $result = '<table><tr><th>' .implode('</th></tr>', $sample_keys) . '</th></tr>';
+        $result .= '<tr><td>' .implode('<td></td>', $sample_meta) . '</td></tr></table>';
+
 
         return view('hello.index', $data);
     }
