@@ -24,6 +24,7 @@ Route::middleware([HelloMiddleware::class])->group(function (){
 //数字のみを指定できるIDパラメータ
 /*Route::get('/hello/{id}',[HelloController::class, 'index'])->where('id','[0-9]+');*/
 Route::get('/hello',[HelloController::class, 'index'])->name('hello');
+Route::post('/hello',[HelloController::class, 'index']);
 Route::get('/hello/{msg}',[HelloController::class, 'other']);
 });
 
