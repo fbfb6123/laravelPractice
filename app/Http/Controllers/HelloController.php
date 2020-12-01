@@ -19,6 +19,8 @@ class HelloController extends Controller
             $form = $request->only(['name', 'mail']);
             $keys = array_keys($form);
             $values = array_values($form);
+            $msg = old('name') . ',' . old('mail') . ',' .
+                   old('tel');
             $data =[
                 'msg'=>'特定の項目を呼び出し',
                 'keys' => $keys,
