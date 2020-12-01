@@ -24,6 +24,13 @@ class HelloController extends Controller
         $result = '<table><tr><th>' .implode('</th></tr>', $sample_keys) . '</th></tr>';
         $result .= '<tr><td>' .implode('<td></td>', $sample_meta) . '</td></tr></table>';
 
+        $sample_data = Storage::disk('public')->get($this->fname);
+
+        $data = [
+            'msg'=>$result,
+            'data'=> explode(PHP_EOL,$sample_data)
+        ];
+
 
         return view('hello.index', $data);
     }
