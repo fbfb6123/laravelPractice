@@ -26,6 +26,7 @@ class HelloController extends Controller
                 'keys' => $keys,
                 'values' => $values,
             ];
+            $request->flash();
         return view('hello.index',$data);
     }
         $data =[
@@ -33,6 +34,7 @@ class HelloController extends Controller
             'keys' => $keys,
             'values' => $values,
         ];
+        $request->flash();
         return view('hello.index', $data);
     }
 
