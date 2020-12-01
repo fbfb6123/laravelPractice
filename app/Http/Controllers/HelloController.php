@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 class HelloController extends Controller
 {
-    private $fname;
-
-    function __construct() {
-        $this->fname = 'hello.txt';
-    }
     public function index(Request $request)
     {
         $msg = 'please input text:';
