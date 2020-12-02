@@ -11,14 +11,13 @@ class HelloController extends Controller
 {
     public function index(Request $request, Response $response)
     {
-        $msg = 'please input text:';
+        $msg = '';
         $keys = [];
         $values = [];
-        if ($request->isMethod('post'))
-        {
+
             $name = $request->query('name');
             $mail = $request->query('mail');
-            $tel = $request->query->('tel');
+            $tel = $request->query('tel');
             $msg = $name . ', ' . $mail .', ' .$tel;
             $keys = ['名前','メール','電話'];
             $values = [$name, $mail, $tel];
@@ -29,14 +28,6 @@ class HelloController extends Controller
             ];
             $request->flash();
         return view('hello.index',$data);
-    }
-        $data =[
-            'msg'=>$msg,
-            'keys' => $keys,
-            'values' => $values,
-        ];
-        $request->flash();
-        return view('hello.index', $data);
     }
 
     public function other($msg) {
