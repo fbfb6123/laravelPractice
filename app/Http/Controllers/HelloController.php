@@ -11,9 +11,6 @@ class HelloController extends Controller
 {
     public function index(Request $request, Response $response)
     {
-        $msg = '';
-        $keys = [];
-        $values = [];
 
             $name = $request->query('name');
             $mail = $request->query('mail');
@@ -30,8 +27,14 @@ class HelloController extends Controller
         return view('hello.index',$data);
     }
 
-    public function other($msg) {
-        Storage::disk('public')->prepend($this->fname, $msg);
-        return redirect()->route('hello');
+    public function other() {
+        $data =[
+            'name'=>'池田',
+            'mail' => 'ikeda@ikeda',
+            'tel' => '090-099-099',
+        ];
+        $query_str = http_build_query($data);
+        $data['msg'] = $query_str;
+        return redirect()->route('hello',$data);
     }
 }
