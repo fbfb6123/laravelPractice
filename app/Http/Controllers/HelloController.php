@@ -22,7 +22,7 @@ class HelloController extends Controller
             $msg = old('name') . ',' . old('mail') . ',' .
                    old('tel');
             $data =[
-                'msg'=>'特定の項目を呼び出し',
+                'msg'=>$msg,
                 'keys' => $keys,
                 'values' => $values,
             ];
