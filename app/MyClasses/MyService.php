@@ -7,7 +7,7 @@ class MyService
     private $msg = 'IDはないよ';
     private  $data = ['こんにちは','ようこそ','さようなら'];
 
-    public function __construct()
+    public function __construct(int $id = -1)
     {
         if ($id >= 0)
         {
