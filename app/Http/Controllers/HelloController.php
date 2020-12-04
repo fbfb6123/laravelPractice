@@ -9,11 +9,10 @@ use Illuminate\Support\Facades\Storage;
 
 class HelloController extends Controller
 {
-    public function index(int $id = -1)
+    public function index(MyService $myService, int $id = -1)
     {
-        $myService = app()->makewith('App\MyClasses\MyService',['id'=>$id]);
+        $myService->setId($id);
             $data =[
-
                 'msg'=>$myService->say($id),
                 'data' => $myService->alldata(),
             ];
