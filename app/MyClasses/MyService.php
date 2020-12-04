@@ -3,13 +3,17 @@ namespace App\MyClasses;
 
 class MyService
 {
-    private $msg;
-    private  $data;
+    private  $id = -1;
+    private $msg = 'IDはないよ';
+    private  $data = ['こんにちは','ようこそ','さようなら'];
 
     public function __construct()
     {
-        $this->msg = 'これはMyServiceだよ';
-        $this->data = ['こんにちは','ようこそ','さよなら'];
+        if ($id >= 0)
+        {
+            $this->id = $id;
+            $this->msg = 'select: ' . $this->data[$id];
+        }
     }
 
     public function say()
@@ -17,7 +21,12 @@ class MyService
         return $this->msg;
     }
 
-    public function data()
+    public function data(int $id)
+    {
+        return $this->data[$id];
+    }
+
+    public function alldata()
     {
         return $this->data;
     }
