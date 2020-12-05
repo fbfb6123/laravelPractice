@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Storage;
 
 class HelloController extends Controller
 {
-    public function index(MyService $myService, int $id = -1)
+    public function index(MyService $myservice, int $id = -1)
     {
-        $myService->setId($id);
+        $myservice->setId($id);
             $data =[
-                'msg'=>$myService->say($id),
-                'data' => $myService->alldata(),
+                'msg'=>$myservice->say($id),
+                'data' => $myservice->alldata(),
             ];
 
         return view('hello.index',$data);
