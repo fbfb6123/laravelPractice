@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Storage;
 
 class HelloController extends Controller
 {
+
+    function __construct(Myservice $myservice)
+    {
+        $myservice = app('App\MyClasses\MyService');
+    }
     public function index(MyService $myservice, int $id = -1)
     {
         $myservice->setId($id);
