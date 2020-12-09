@@ -1,7 +1,7 @@
 <?php
 namespace App\MyClasses;
 
-class MyService
+class MyService implements MyServiceInterface
 {
     private $serial;
     private  $id = -1;
@@ -10,7 +10,6 @@ class MyService
 
     public function __construct()
     {
-        $this->sendId($id);
         $this->serial = rand();
         echo "[" . $this->serial . "]";
     }
