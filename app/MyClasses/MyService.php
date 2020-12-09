@@ -10,6 +10,7 @@ class MyService
 
     public function __construct()
     {
+        $this->sendId($id);
         $this->serial = rand();
         echo "[" . $this->serial . "]";
     }
