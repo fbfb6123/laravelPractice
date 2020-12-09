@@ -1,7 +1,7 @@
 <?php
 namespace App\MyClasses;
 
-interface MyServiceinterface
+interface MyServiceInterface
 {
     public function setId(int $id);
     public function say();

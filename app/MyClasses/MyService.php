@@ -1,6 +1,8 @@
 <?php
 namespace App\MyClasses;
 
+
+
 class MyService implements MyServiceInterface
 {
     private $serial;
