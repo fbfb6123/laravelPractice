@@ -11,4 +11,15 @@ class PowerMyService implements MyServiceInterface
     {
         $this->setId(rand(0, count($this->data)));
     }
+
+    public function setId($id)
+    {
+        if ($id >=0 && $id < count($this->data))
+        {
+            $this->id = $id;
+            $this->msg = "あなたがすきなのは". $id
+                . "番の" .$this->data[$id] . "ですね";
+        }
+    }
+    
 }
