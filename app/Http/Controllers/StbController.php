@@ -6,13 +6,10 @@ use Illuminate\Http\Request;
 
 class StbController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $data =[
-            'msg'=>$request->msg,
-            'data' => $request->alldata,
-        ];
-        return view('hello.index',$data);
+
+        return view('hello2.index');
     }
 
     public function other() {
@@ -25,5 +22,4 @@ class StbController extends Controller
         $data['msg'] = $query_str;
         return redirect()->route('hello',$data);
     }
-}
 }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\Sample\SampleController;
+use App\Http\Controllers\StbController;
 use App\Http\Middleware\HelloMiddleware;
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,6 @@ Route::namespace('Sample')->group(function () {
     Route::get('/sample/other',[SampleController::class, 'other']);
 });
 
-
+Route::get('/hello2',[StbController::class, 'index'])->name('stb');
 
 /*Route::get('/hello/{person}',[HelloController::class, 'index']);20P*/
