@@ -11,11 +11,6 @@ use Illuminate\Support\Facades\Storage;
 class HelloController extends Controller
 {
 
-    function __construct()
-    {
-    }
-
-
     public function index(MyServiceInterface $myservice, int $id = -1)
     {
         $myservice->setId($id);
