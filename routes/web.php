@@ -24,8 +24,10 @@ Route::get('/', function () {
 //数字のみを指定できるIDパラメータ
 /*Route::get('/hello/{id}',[HelloController::class, 'index'])->where('id','[0-9]+');*/
 Route::get('/hello/other',[HelloController::class, 'other']);
-Route::get('/hello/{id}',[HelloController::class, 'index'])->name('hello');
-Route::get('/hello',[HelloController::class, 'index']);
+Route::get('/hello/{id}',[HelloController::class, 'index'])->name('hello')
+    ->middleware(App\Http\Middleware\MyMiddleware::class);
+Route::get('/hello',[HelloController::class, 'index'])
+->middleware(App\Http\Middleware\MyMiddleware::class);
 /*});*/
 
 Route::namespace('Sample')->group(function () {
