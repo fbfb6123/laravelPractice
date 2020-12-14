@@ -8,52 +8,19 @@ use Illuminate\Support\Facades\Log;
 
 class StbController extends Controller
 {
-    public function index($id = -1)
+    public function index()
     {
-        if ($id >= 0)
-        {
-            $msg = 'get name like "' .$id . '".';
-            $result = [DB::table('people')->find($id)];
-            Log::info($result);
-            //ログ($result)の中身 ２次元配列
-            /*local.INFO: array (
-            0 =>
-                (object) array(
-                    'id' => 3,
-                    'name' => '永田',
-                    'email' => 'zoo@zoo',
-                    'age' => 28,
-                    'created_at' => '2020-12-14 09:51:00',
-                    'updated_at' => '2020-12-14 09:51:01',
-                ),
-        )  */
-        }
-        else
-        {
-            $msg = 'get people records.';
-            $result = DB::table('people')->get();
-        }
 
+        $name = DB::table('people')->pluck('name');
+        $value = $name->toArray();
+        $msg = implode(', ', $value);
+        $result = DB::table('people')->get();
+        
         $data = [
             'msg' =>$msg,
             'data' => $result,
         ];
         Log::debug($data);
-        //ログ($data)の中身　　三次元配列
-        /*local.DEBUG: array (
-        'msg' => 'get name like "3".',
-        'data' =>
-            array (
-                0 =>
-                    (object) array(
-                        'id' => 3,
-                        'name' => '永田',
-                        'email' => 'zoo@zoo',
-                        'age' => 28,
-                        'created_at' => '2020-12-14 09:51:00',
-                        'updated_at' => '2020-12-14 09:51:01',
-                    ),
-            ),*/
 
         return view('hello2.index', $data);
     }
