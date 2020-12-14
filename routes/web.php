@@ -37,5 +37,6 @@ Route::namespace('Sample')->group(function () {
 });
 
 Route::get('/hello2',[StbController::class, 'index'])->name('stb');
+Route::get('/hello2/{id}',[StbController::class, 'index'])->name('stb');
 
 /*Route::get('/hello/{person}',[HelloController::class, 'index']);20P*/
