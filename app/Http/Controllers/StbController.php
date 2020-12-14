@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StbController extends Controller
 {
     public function index()
     {
+        $result = DB::table('people')->get();
 
-        return view('hello2.index');
+        $data = [
+            'msg' =>'データベースにアクセス',
+            'data' => $result,
+        ];
+
+        return view('hello2.index', $data);
     }
 
     public function other() {
