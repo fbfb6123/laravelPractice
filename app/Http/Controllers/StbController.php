@@ -12,7 +12,7 @@ class StbController extends Controller
         if ($id >= 0)
         {
             $msg = 'get ID <= ' . $id;
-            $result = DB::table('people')->where('id','<=',$id)->get();
+            $result = DB::table('people')->where('name','like','%'.$id . '%')->get();
         }
         else
         {
@@ -20,7 +20,7 @@ class StbController extends Controller
             $result = DB::table('people')->get();
         }
         $data = [
-            'msg' =>'データベースにアクセス',
+            'msg' =>$msg,
             'data' => $result,
         ];
 
