@@ -11,17 +11,23 @@ class StbController extends Controller
     public function index()
     {
 
-        $name = DB::table('people')->pluck('name');
-        $value = $name->toArray();
-        $msg = implode(', ', $value);
-        $result = DB::table('people')->get();
-        
+        $data = ['msg'=>'','data'=>[]];
+        $msg = 'get: ';
+        $result = [];
+        DB::table('people')->chunkById(2, function ($items) use (&$msg, &$result)
+        {
+            foreach ($items as $item)
+            {
+                $msg .=$item->id . '';
+                $result += array_merge($result, [$item]);
+                break;
+            }
+            return true;
+        });
         $data = [
             'msg' =>$msg,
             'data' => $result,
         ];
-        Log::debug($data);
-
         return view('hello2.index', $data);
     }
 
