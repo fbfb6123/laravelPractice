@@ -14,7 +14,7 @@ class StbController extends Controller
         $ids = explode(',', $id);
         $msg = 'get people.';
         $result = DB::table('people')
-            ->whereBetween('id', $ids)->get();
+            ->whereIn('id', $ids)->get();
 
         $data = [
             'msg' =>$msg,
