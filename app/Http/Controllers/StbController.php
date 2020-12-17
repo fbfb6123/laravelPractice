@@ -12,6 +12,8 @@ class StbController extends Controller
     {
 
         $msg = 'show page: ' .$id
+        $result = DB::table('people')->paginate(3, ['*'], 'page', $id);
+        
         $data = [
             'msg' =>$msg,
             'data' => $result,
