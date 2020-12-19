@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="ja">
 <head>
+    <link herf="/css/app.css" rel="stylesheet">
     <title>Index</title>
 </head>
 <body>
@@ -12,6 +13,7 @@
         <li>{{$item->name}} [{{$item->email}},{{$item->age}}]</li>
     @endforeach
 </ol>
+{!! $data->links() !!}
 </body>
 </html>
 
