@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\Sample\SampleController;
 use App\Http\Controllers\StbController;
+use App\Http\Controllers\Stb2Controller;
 use App\Http\Middleware\HelloMiddleware;
 /*
 |--------------------------------------------------------------------------
@@ -38,5 +39,11 @@ Route::namespace('Sample')->group(function () {
 
 Route::get('/hello2',[StbController::class, 'index'])->name('stb');
 Route::get('/hello2/{id}',[StbController::class, 'index'])->name('stb');
+
+
+//EloquentとCollection
+Route::get('/hello3',[Stb2Controller::class, 'index'])->name('stb2');
+
+
 
 /*Route::get('/hello/{person}',[HelloController::class, 'index']);20P*/

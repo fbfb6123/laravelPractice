@@ -1,5 +1,4 @@
-{{--ナビゲーションリンク　p140--}}
-    <!doctype html>
+<!doctype html>
 <html lang="ja">
 <head>
     <link href="/css/app.css" rel="stylesheet">
@@ -8,12 +7,17 @@
 <body>
 <h1>Hello/Index</h1>
 <p>{{$msg}}</p>
-<ol>
+<table border="1">
     @foreach($data as $item)
-        <li>{{$item->name}} [{{$item->email}},{{$item->age}}]</li>
+        <tr>
+            <th>{{$item->id}}</th>
+            <td>{{$item->name}}</td>
+            <td>{{$item->email}}</td>
+            <td>{{$item->age}}</td>
+        </tr>
     @endforeach
-</ol>
-{!! $paginator->link() !!}
+</table>
+<hr>
 </body>
 </html>
 
