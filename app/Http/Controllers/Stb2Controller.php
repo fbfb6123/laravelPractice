@@ -12,7 +12,10 @@ class Stb2Controller extends Controller
     {
         $msg = 'peopleテーブル';
 
-        $result = Person::get();
+        $result = Person::get()->reject(function($person)
+        {
+            return $person->age <25;
+        });
 
         $data = [
             'msg' =>$msg,
