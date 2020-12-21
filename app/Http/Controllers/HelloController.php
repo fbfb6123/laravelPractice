@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 /*use App\MyClasses\MyService;*/
+
+use App\Http\Pagination\MyPaginator;
+use App\Models\Person;
 use App\MyClasses\MyServiceInterface;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -17,11 +20,13 @@ class HelloController extends Controller
     {
         $id = $request->query('page');
         $msg = 'show page: ' .$id;
-        $result = DB::table('people')->simplePaginate(3);
+        $result = Person::paginate(3);
+        $paginator = new MyPaginator($result);
 
         $data = [
             'msg' =>$msg,
             'data' => $result,
+            'paginator' => $paginator,
         ];
         return view('hello.index',$data);
     }

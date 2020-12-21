@@ -13,7 +13,7 @@
         <li>{{$item->name}} [{{$item->email}},{{$item->age}}]</li>
     @endforeach
 </ol>
-{!! $data->links() !!}
+{!! $paginator->link() !!}
 </body>
 </html>
 
