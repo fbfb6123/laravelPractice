@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="ja">
 <head>
-    <link herf="/css/app.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
     <title>Index</title>
 </head>
 <body>
