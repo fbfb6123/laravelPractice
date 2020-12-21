@@ -1,16 +1,19 @@
-<!doctype html>
+{{--DBとクエリビルダの動作確認用--}}
+    <!doctype html>
 <html lang="ja">
 <head>
+    <link href="/css/app.css" rel="stylesheet">
     <title>Index</title>
 </head>
 <body>
 <h1>Hello/Index</h1>
 <p>{{$msg}}</p>
-<ul>
+<ol>
     @foreach($data as $item)
-        <li>{{$item}}</li>
+        <li>{{$item->name}} [{{$item->email}},{{$item->age}}]</li>
     @endforeach
-</ul>
+</ol>
+{!! $data->links() !!}
 </body>
 </html>
 

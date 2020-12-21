@@ -52,6 +52,6 @@ $app->singleton(
 |
 */
 
-Illuminate\Pagination\AbstractPaginatior::defaultView("pagination::bootstrap-4");
+Illuminate\Pagination\AbstractPaginator::defaultView("pagination::bootstrap-4");
 
 return $app;
