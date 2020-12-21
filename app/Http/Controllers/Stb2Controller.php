@@ -12,21 +12,18 @@ class Stb2Controller extends Controller
     {
         $msg = 'peopleテーブル';
 
-        $result = Person::get()->filter(function($person)
+        $keys = Person::get()->modelKeys();
+
+        $even = array_filter($keys, function ($key)
         {
-            return $person->age < 50;
+            return $key % 2 == 0;
         });
 
-        $result2 = Person::get()->filter(function ($person)
-        {
-            return $person->age < 20;
-        });
-
-        $result3 = $result->diff($result2);
+        $result = Person::get()->only($even);
 
         $data = [
             'msg' =>$msg,
-            'data' =>$result2,
+            'data' =>$result,
         ];
 
         return view('hello3.index', $data);
