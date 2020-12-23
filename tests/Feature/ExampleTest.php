@@ -24,17 +24,17 @@ class ExampleTest extends TestCase
     {
         for($i = 0;$i < 100;$i++)
         {
-            User::factory()->create();
+            Person::factory()->create();
         }
-        $count = User::get()->count();
-        $user = User::find(rand(1, $count));
-        $data = $user->toArray();
+        $count = Person::get()->count();
+        $person = Person::find(rand(1, $count));
+        $data = $person->toArray();
         print_r($data);
 
-        $this->assertDatabaseHas('users', $data);
+        $this->assertDatabaseHas('people', $data);
 
-        $user->delete();
-        $this->assertDatabaseMissing('users', $data);
+        $person->delete();
+        $this->assertDatabaseMissing('people', $data);
 
     }
 }
