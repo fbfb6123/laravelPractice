@@ -14,10 +14,19 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/');
+        $data = [
+            'id' => 1,
+            'name' => 'ikeda',
+            'email' => 'ikeda@ikeda',
+            'age' => '24'
+        ];
 
-        $response->assertStatus(200);
+        $this->assertDatabaseHas('people', $data);
 
-        
+        $data['id'] =2;
+        $this->assertDatabaseMissing('people', $data);
+
+
+
     }
 }
