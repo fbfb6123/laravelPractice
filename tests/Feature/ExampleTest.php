@@ -6,7 +6,9 @@ use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Models\Person;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 
 class ExampleTest extends TestCase
@@ -20,14 +22,19 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $this->seed(DatabaseSeeder::class);
-        $person = Person::find(1);
-        $data = $person->toArray();
+        for($i = 0;$i < 100;$i++)
+        {
+            User::factory()->create();
+        }
+        $count = User::get()->count();
+        $user = User::find(rand(1, $count));
+        $data = $user->toArray();
+        print_r($data);
 
-        $this->assertDatabaseHas('people', $data);
+        $this->assertDatabaseHas('users', $data);
 
-        $person->delete();
-        $this->assertDatabaseMissing('people', $data);
+        $user->delete();
+        $this->assertDatabaseMissing('users', $data);
 
     }
 }
