@@ -12,14 +12,15 @@ class Stb2Controller extends Controller
     {
         $msg = 'peopleテーブル';
 
-        $keys = Person::get()->modelKeys();
-
-        $even = array_filter($keys, function ($key)
+        $even = Person::get()->filter(function($item)
         {
-            return $key % 2 == 0;
+            return $item->$id % 2 == 0;
         });
 
-        $result = Person::get()->only($even);
+        $map = $even->map(function($item, $key)
+        {
+            return $item->id . ':' . $item->name;
+        });
 
         $data = [
             'msg' =>$msg,
