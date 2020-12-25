@@ -36,5 +36,30 @@ class ExampleTest extends TestCase
         $person->delete();
         $this->assertDatabaseMissing('people', $data);
 
+
+
+        //テストコード
+        $this->get('/')->aseertStatus(200);
+
+        $this->get('/hello')->assertOk();
+
+        $this->post('/hello')->assertOk();
+
+        $this->get('/hello/1')->assertOk();
+
+        $this->get('/hoge')->assertOk(404);
+
+        $this->get('/hello/1')->assertSeeText('Index');
+
+        $this->get('/hello/1')->assertSee('<h1>');
+
+        $this->get('/hello/1')->assertSeeOrder(['<html','<head','<body','<h1>']);
+
+        $this->get('/hello/json/1')->assertSeeText('YAMADA');
+
+        $this->get('/hello/json/1')->assertExactjson(['id'=>2,'name'=>'HANAKO','mail'=>'hanako@flower','age'=>'19',
+        'created_at'=>'2019-05-16 02:10:10','updated_at'=>'2019-05-16 02:10:10']);
+
+
     }
 }
