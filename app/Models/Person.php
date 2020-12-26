@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 
 class Person extends Model
 {
@@ -15,4 +16,17 @@ class Person extends Model
         'email',
         'age',
     ];
+
+    public function newCollection(array $models = [])
+    {
+        return new MyCollection($models);
+    }
+
+    class MyCollection extends Colllection{
+        public function fields()
+        {
+            $item = $this->first();
+            return array_keys($item->toArray());
+        }
+    }
 }
