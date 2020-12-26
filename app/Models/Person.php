@@ -22,11 +22,12 @@ class Person extends Model
         return new MyCollection($models);
     }
 
-    class MyCollection extends Colllection{
-        public function fields()
-        {
-            $item = $this->first();
-            return array_keys($item->toArray());
-        }
+class MyCollection extends Collection
+{
+    public function fields()
+    {
+        $item = $this->first();
+        return array_keys($item->toArray());
+    }
     }
 }
